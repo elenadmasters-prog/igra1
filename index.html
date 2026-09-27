@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e5f4fc">
+  <title>Кнопка хорошего настроения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💙%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="blob blob-left" aria-hidden="true"></div>
+  <div class="blob blob-right" aria-hidden="true"></div>
+
+  <main class="app">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">💙</div>
+      <div>
+        <p class="brand-name">ПроДетейРодителям</p>
+        <p class="brand-place">МБУ Центр «Леда»</p>
+      </div>
+    </header>
+
+    <section id="screen-start" class="panel" data-screen="start">
+      <h1>Кнопка хорошего настроения</h1>
+      <p class="subtitle">Для родителей, которые сегодня немножко <span class="nowrap">устали 💙</span></p>
+      <h2 class="question">Как прошёл ваш день?</h2>
+
+      <div class="mood-list" role="group" aria-label="Как прошёл ваш день">
+        <button type="button" class="mood-option mood-exhausted" data-mood="exhausted" aria-pressed="false">
+          <span class="mood-emoji" aria-hidden="true">😫</span>
+          <span>Я всё…</span>
+        </button>
+        <button type="button" class="mood-option mood-annoyed" data-mood="annoyed" aria-pressed="false">
+          <span class="mood-emoji" aria-hidden="true">😩</span>
+          <span>Я очень очень устал(а)</span>
+        </button>
+        <button type="button" class="mood-option mood-quiet" data-mood="quiet" aria-pressed="false">
+          <span class="mood-emoji" aria-hidden="true">😴</span>
+          <span>Хочу тишины</span>
+        </button>
+        <button type="button" class="mood-option mood-okay" data-mood="okay" aria-pressed="false">
+          <span class="mood-emoji" aria-hidden="true">🙂</span>
+          <span>В целом нормально</span>
+        </button>
+        <button type="button" class="mood-option mood-good" data-mood="good" aria-pressed="false">
+          <span class="mood-emoji" aria-hidden="true">😄</span>
+          <span>А у меня хороший день!</span>
+        </button>
+      </div>
+
+      <div id="meter-slot-start">
+        <section id="meter" class="meter" hidden>
+          <p class="meter-label">Уровень настроения</p>
+          <div class="meter-row">
+            <span id="meter-face" class="meter-face" aria-hidden="true">😫</span>
+            <div id="meter-bars" class="meter-bars" role="img" aria-label="Уровень настроения: 1 из 5">
+              <span class="is-on"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="reaction" class="reaction" hidden>
+        <p id="reaction-text"></p>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="lift-mood" class="btn btn-primary" hidden>Поднять настроение</button>
+      </div>
+    </section>
+
+    <section id="screen-play" class="panel" data-screen="play" hidden>
+      <div id="meter-slot-play"></div>
+      <article id="card" class="card" aria-live="polite">
+        <span id="card-emoji" class="card-emoji" aria-hidden="true">🎁</span>
+        <p id="card-kicker" class="card-kicker"></p>
+        <h2 id="card-title" class="card-title"></h2>
+        <div id="card-text" class="card-text"></div>
+      </article>
+
+      <div id="play-actions" class="actions">
+        <button type="button" id="want-more" class="btn btn-primary">Хочу ещё 😄</button>
+        <button type="button" id="restart-late" class="btn btn-secondary" data-action="restart" hidden>Начать сначала</button>
+      </div>
+
+      <div id="finale" class="finale" hidden>
+        <h2>Ура! +3 к настроению 🎉</h2>
+        <p class="finale-text">Теперь можно возвращаться к делам.<br>Или побыть здесь ещё немного — мы никому не скажем 😉</p>
+        <p class="finale-brand">ПроДетейРодителям — место, где родителей тоже понимают.</p>
+        <div class="actions">
+          <button type="button" id="one-more" class="btn btn-primary">Получить ещё одну карточку</button>
+          <button type="button" class="btn btn-secondary" data-action="restart">Начать сначала</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <p class="noscript">Чтобы игра открылась, включите JavaScript в браузере.</p>
+  </noscript>
+
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script src="js/cards.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
